@@ -1,0 +1,40 @@
+name:           'xcodebuild'
+description:    'GitHub Action for xcodebuild'
+runs:
+    using:      'composite'
+    steps:
+        
+        - name:     Xcode - Version
+          id:       xcodebuild-version
+          shell:    bash
+          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcode-select -p; fi
+        
+        - name:     Xcode - SDKs
+          id:       xcodebuild-sdk
+          shell:    bash
+          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -showsdks; fi
+        
+        - name:     Xcode - Destinations
+          id:       xcodebuild-destinations
+          shell:    bash
+          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -showdestinations; fi
+        
+        - name:     Xcode - Build Settings
+          id:       xcodebuild-build-settings
+          shell:    bash
+          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -showBuildSettings; fi
+        
+        - name:     Xcode - Build
+          id:       xcodebuild-build
+          shell:    bash
+          run:      if ${{ matrix.run-config[ 'build' ] == 1 }}; then xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -configuration '${{ matrix.run-config[ 'configuration' ] }}' -destination '${{ matrix.run-config[ 'destination' ] }}' -showBuildTimingSummary build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO; fi
+        
+        - name:     Xcode - Analyze
+          id:       xcodebuild-analyze
+          shell:    bash
+          run:      if ${{ matrix.run-config[ 'analyze' ] == 1 }}; then xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -configuration '${{ matrix.run-config[ 'configuration' ] }}' -destination '${{ matrix.run-config[ 'destination' ] }}' -showBuildTimingSummary analyze CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO; fi
+        
+        - name:     Xcode - Test
+          id:       xcodebuild-test
+          shell:    bash
+          run:      if ${{ matrix.run-config[ 'test' ] == 1 }}; then xcodebuild -project '${{ matrix.run-config[ 'project' ] }}' -scheme '${{ matrix.run-config[ 'scheme' ] }}' -configuration '${{ matrix.run-config[ 'configuration' ] }}' -destination '${{ matrix.run-config[ 'destination' ] }}' -showBuildTimingSummary test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO; fi
