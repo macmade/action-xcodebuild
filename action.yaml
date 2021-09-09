@@ -1,5 +1,9 @@
-name:           'xcodebuild'
-description:    'GitHub Action for xcodebuild'
+name:           macmade - xcodebuild
+description:    GitHub Action for xcodebuild
+author:         macmade
+branding:
+    icon:       box
+    color:      blue
 runs:
     using:      'composite'
     steps:
