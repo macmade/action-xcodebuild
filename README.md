@@ -3,11 +3,9 @@ action-xcodebuild
 
 [![Issues](http://img.shields.io/github/issues/macmade/action-xcodebuild.svg)](https://github.com/macmade/action-xcodebuild/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
-![License](https://img.shields.io/badge/license-mit-brightgreen.svg)
-[![Contact](https://img.shields.io/badge/contact-@macmade-blue.svg)](https://twitter.com/macmade)  
-[![Donate-Patreon](https://img.shields.io/badge/donate-patreon-yellow.svg)](https://patreon.com/macmade)
-[![Donate-Gratipay](https://img.shields.io/badge/donate-gratipay-yellow.svg)](https://www.gratipay.com/macmade)
-[![Donate-Paypal](https://img.shields.io/badge/donate-paypal-yellow.svg)](https://paypal.me/xslabs)
+![License](https://img.shields.io/badge/license-mit-brightgreen.svg)  
+[![Contact](https://img.shields.io/badge/follow-@macmade-blue.svg?logo=twitter&style=social)](https://twitter.com/macmade)
+[![Donate-Paypal](https://img.shields.io/badge/donate-paypal-pink.svg?logo=github-sponsors&style=social)](https://paypal.me/xslabs)
 
 ### About
 
