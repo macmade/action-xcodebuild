@@ -1,9 +1,9 @@
 action-xcodebuild
 =================
 
-[![Issues](http://img.shields.io/github/issues/macmade/action-xcodebuild.svg)](https://github.com/macmade/action-xcodebuild/issues)
-![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
-![License](https://img.shields.io/badge/license-mit-brightgreen.svg)  
+[![Issues](http://img.shields.io/github/issues/macmade/action-xcodebuild.svg?logo=github)](https://github.com/macmade/action-xcodebuild/issues)
+![Status](https://img.shields.io/badge/status-active-brightgreen.svg?logo=git)
+![License](https://img.shields.io/badge/license-mit-brightgreen.svg?logo=open-source-initiative)  
 [![Contact](https://img.shields.io/badge/follow-@macmade-blue.svg?logo=twitter&style=social)](https://twitter.com/macmade)
 [![Donate-Paypal](https://img.shields.io/badge/donate-paypal-pink.svg?logo=github-sponsors&style=social)](https://paypal.me/xslabs)
 
