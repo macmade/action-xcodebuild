@@ -41,6 +41,16 @@ GitHub Action for xcodebuild.
   - **destination**: `String`  
     The Xcode destination device (eg `platform=macOS`).  
     
+**Code signing**:
+
+Build, analyze and test actions always run with code signing **disabled**, using:
+
+    CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+This keeps continuous integration builds running on unsigned runners without
+provisioning profiles. The action is intended for CI build/test, not for
+producing signed, distributable artifacts.
+
 **Complete example**:
 
     name:   ci
