@@ -10,59 +10,66 @@ runs:
         
         - name:     Xcode - Version
           id:       xcodebuild-version
+          if:       ${{ matrix.run-config[ 'info' ] == 1 }}
           shell:    bash
-          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcode-select -p; fi
+          run:      xcode-select -p
         
         - name:     Xcode - SDKs
           id:       xcodebuild-sdk
+          if:       ${{ matrix.run-config[ 'info' ] == 1 }}
           shell:    bash
           env:
               PROJECT:    ${{ matrix.run-config[ 'project' ] }}
               SCHEME:     ${{ matrix.run-config[ 'scheme' ] }}
-          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcodebuild -project "$PROJECT" -scheme "$SCHEME" -showsdks; fi
+          run:      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -showsdks
         
         - name:     Xcode - Destinations
           id:       xcodebuild-destinations
+          if:       ${{ matrix.run-config[ 'info' ] == 1 }}
           shell:    bash
           env:
               PROJECT:    ${{ matrix.run-config[ 'project' ] }}
               SCHEME:     ${{ matrix.run-config[ 'scheme' ] }}
-          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcodebuild -project "$PROJECT" -scheme "$SCHEME" -showdestinations; fi
+          run:      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -showdestinations
         
         - name:     Xcode - Build Settings
           id:       xcodebuild-build-settings
+          if:       ${{ matrix.run-config[ 'info' ] == 1 }}
           shell:    bash
           env:
               PROJECT:    ${{ matrix.run-config[ 'project' ] }}
               SCHEME:     ${{ matrix.run-config[ 'scheme' ] }}
-          run:      if ${{ matrix.run-config[ 'info' ] == 1 }}; then xcodebuild -project "$PROJECT" -scheme "$SCHEME" -showBuildSettings; fi
+          run:      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -showBuildSettings
         
         - name:     Xcode - Build
           id:       xcodebuild-build
+          if:       ${{ matrix.run-config[ 'build' ] == 1 }}
           shell:    bash
           env:
               PROJECT:        ${{ matrix.run-config[ 'project' ] }}
               SCHEME:         ${{ matrix.run-config[ 'scheme' ] }}
               CONFIGURATION:  ${{ matrix.run-config[ 'configuration' ] }}
               DESTINATION:    ${{ matrix.run-config[ 'destination' ] }}
-          run:      if ${{ matrix.run-config[ 'build' ] == 1 }}; then xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -destination "$DESTINATION" -showBuildTimingSummary build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO; fi
+          run:      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -destination "$DESTINATION" -showBuildTimingSummary build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
         
         - name:     Xcode - Analyze
           id:       xcodebuild-analyze
+          if:       ${{ matrix.run-config[ 'analyze' ] == 1 }}
           shell:    bash
           env:
               PROJECT:        ${{ matrix.run-config[ 'project' ] }}
               SCHEME:         ${{ matrix.run-config[ 'scheme' ] }}
               CONFIGURATION:  ${{ matrix.run-config[ 'configuration' ] }}
               DESTINATION:    ${{ matrix.run-config[ 'destination' ] }}
-          run:      if ${{ matrix.run-config[ 'analyze' ] == 1 }}; then xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -destination "$DESTINATION" -showBuildTimingSummary analyze CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO; fi
+          run:      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -destination "$DESTINATION" -showBuildTimingSummary analyze CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
         
         - name:     Xcode - Test
           id:       xcodebuild-test
+          if:       ${{ matrix.run-config[ 'test' ] == 1 }}
           shell:    bash
           env:
               PROJECT:        ${{ matrix.run-config[ 'project' ] }}
               SCHEME:         ${{ matrix.run-config[ 'scheme' ] }}
               CONFIGURATION:  ${{ matrix.run-config[ 'configuration' ] }}
               DESTINATION:    ${{ matrix.run-config[ 'destination' ] }}
-          run:      if ${{ matrix.run-config[ 'test' ] == 1 }}; then xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -destination "$DESTINATION" -showBuildTimingSummary test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO; fi
+          run:      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -destination "$DESTINATION" -showBuildTimingSummary test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
