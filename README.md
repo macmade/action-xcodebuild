@@ -64,7 +64,7 @@ producing signed, distributable artifacts.
                         - { scheme: 'macOS App', configuration: 'Debug',   project: 'App.xcodeproj', build: 1, analyze: 1, test: 1, info: 1, destination: 'platform=macOS' }
                         - { scheme: 'iOS App',   configuration: 'Release', project: 'App.xcodeproj', build: 1, analyze: 0, test: 0, info: 1, destination: 'platform=iOS Simulator,name=iPhone 12' }
             steps:
-                - uses: actions/checkout@v4
+                - uses: actions/checkout@v6
                 - uses: macmade/action-xcodebuild@v1.0.0
 
 License
